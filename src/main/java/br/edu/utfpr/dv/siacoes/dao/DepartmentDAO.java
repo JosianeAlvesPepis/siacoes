@@ -30,11 +30,10 @@ public class DepartmentDAO {
 			
 			rs = stmt.executeQuery();
 			
-			if(rs.next()){
-				return this.loadObject(rs);
-			}else{
-				return null;
-			}
+			if(!rs.next()) return null;
+				
+			return this.loadObject(rs);
+			
 		}finally{
 			CloseConnection(conn,stmt,rs);
 		}
